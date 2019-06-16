@@ -1,0 +1,16 @@
+server:
+  port: 9992
+
+spring:
+  cloud:
+    gateway:
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+      routes:
+        - id: websocket_route
+          uri: http://localhost:9991
+          predicates:
+              - Path=/ws/**
+
